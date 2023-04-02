@@ -19,9 +19,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.render(__dirname + "home");
+  //res.render("home");
+  res.render("home", {
+    homeContent: homeStartingContent,
+  });
+});
+app.get("/about", function (req, res) {
+  //res.render("about");
+  res.render("about", {
+    aboutContent: aboutContent,
+  });
+});
+app.get("/contact", function (req, res) {
+  //res.render("contact");
+  res.render("contact", {
+    contactContent: contactContent,
+  });
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(5000, function () {
+  console.log("Server started on port 5000");
 });
